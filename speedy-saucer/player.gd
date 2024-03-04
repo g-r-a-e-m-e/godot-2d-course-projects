@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 func _physics_process(delta):
-	var force_amount = 1500.0
+	var force_amount = 1000.0
 	if Input.is_action_pressed("move_up"):
 		apply_force(Vector2(0.0, -force_amount))
 	if Input.is_action_pressed("move_left"):

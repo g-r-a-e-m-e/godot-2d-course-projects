@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bfsqoih801ben" path="res://assets/ufoGreen.png" id="1_fqnyk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0fwu5"]
-radius = 46.0
+radius = 14.0357
 
 [node name="player" type="RigidBody2D"]
 position = Vector2(576, 322)
@@ -12,7 +12,10 @@ gravity_scale = 1.66533e-16
 script = ExtResource("1_bgftf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.324885, 0.324885)
 texture = ExtResource("1_fqnyk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0fwu5")
+
+[node name="Camera2D" type="Camera2D" parent="."]

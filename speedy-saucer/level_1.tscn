@@ -1,17 +1,74 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmng4qd4u1m3p"]
+[gd_scene load_steps=8 format=3 uid="uid://dmng4qd4u1m3p"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_d3288"]
 [ext_resource type="Texture2D" uid="uid://b2hupf3x6aoms" path="res://assets/purple.png" id="1_jjvlr"]
 [ext_resource type="PackedScene" uid="uid://c2jxyvjibrtdj" path="res://player.tscn" id="2_tukm6"]
+[ext_resource type="PackedScene" uid="uid://nuhm3jp3aee5" path="res://track.tscn" id="4_oy6un"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_llwcs"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_jmre1"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_3bud8"]
 
 [node name="level_1" type="Node2D"]
 script = ExtResource("1_d3288")
 
-[node name="background" type="TextureRect" parent="."]
-offset_right = 1152.0
-offset_bottom = 648.0
+[node name="graphics" type="Node" parent="."]
+
+[node name="CanvasLayer_BG" type="CanvasLayer" parent="graphics"]
+layer = -1
+
+[node name="background" type="TextureRect" parent="graphics/CanvasLayer_BG"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_jjvlr")
 stretch_mode = 1
 
+[node name="start_label" type="Label" parent="graphics"]
+z_index = 99
+offset_left = 263.0
+offset_top = 129.047
+offset_right = 353.0
+offset_bottom = 171.047
+scale = Vector2(1, 1.01775)
+text = "START"
+label_settings = SubResource("LabelSettings_llwcs")
+
+[node name="end_label" type="Label" parent="graphics"]
+z_index = 99
+offset_left = 496.0
+offset_top = 92.0472
+offset_right = 559.0
+offset_bottom = 134.047
+scale = Vector2(1, 1.01775)
+text = "END"
+label_settings = SubResource("LabelSettings_jmre1")
+
+[node name="rules_label" type="Label" parent="graphics"]
+z_index = 99
+offset_left = 169.0
+offset_top = 64.0472
+offset_right = 405.0
+offset_bottom = 139.047
+rotation = -0.239779
+text = "Navigate from START to END using WASD/Arrow Keys!
+Don't fall off the track!"
+label_settings = SubResource("LabelSettings_3bud8")
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="player" parent="." instance=ExtResource("2_tukm6")]
+z_index = 100
+position = Vector2(307, 155)
+
+[node name="track" parent="." instance=ExtResource("4_oy6un")]
 z_index = 1
+position = Vector2(248, 140)
+
+[connection signal="body_exited" from="track" to="." method="_on_track_body_exited"]
