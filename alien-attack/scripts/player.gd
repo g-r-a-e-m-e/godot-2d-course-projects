@@ -3,8 +3,8 @@ extends CharacterBody2D
 # Declare screen_size variable
 var screen_size
 
-# Specify velocity amount for movement
-var velocity_magnitude = 750.0
+# Specify magnitude of velocity
+@export var velocity_magnitude = 750.0
 
 func _ready():
 	screen_size = get_viewport_rect().size
