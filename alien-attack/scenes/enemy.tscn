@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6kph4vhdd08g"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_np0dy"]
+[ext_resource type="Texture2D" uid="uid://bwk7wpfk2a3q3" path="res://assets/textures/enemy_ship.png" id="1_qhvg5"]
+
+[node name="enemy" type="Area2D"]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_np0dy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_qhvg5")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-1, -261, -12, -233, -37, -264, -63, -236, -86, -209, -92, -193, -91, -180, -99, -147, -103, -125, -105, -102, -104, -77, -100, -60, -100, -50, -118, -20, -123, -21, -151, -1, -183, 31, -200, 63, -211, 97, -216, 120, -194, 97, -183, 93, -174, 94, -166, 100, -162, 110, -156, 101, -148, 92, -136, 89, -128, 93, -111, 122, -102, 124, -86, 141, -72, 157, -54, 171, -52, 186, -46, 199, -36, 220, -18, 248, 0, 268, 17, 249, 35, 219, 47, 196, 54, 180, 55, 170, 70, 158, 87, 142, 99, 125, 109, 122, 120, 105, 129, 91, 135, 88, 143, 90, 151, 96, 159, 109, 164, 99, 172, 93, 183, 92, 193, 97, 205, 110, 214, 122, 208, 92, 202, 71, 190, 46, 179, 28, 159, 9, 133, -13, 115, -24, 106, -44, 93, -62, 104, -62, 107, -91, 107, -116, 103, -146, 96, -176, 88, -202, 70, -229, 54, -247, 36, -264, 15, -240)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

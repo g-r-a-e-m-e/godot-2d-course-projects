@@ -10,8 +10,8 @@ func _ready():
 	visible_node.connect("screen_exited", _on_screen_exited)
 
 func _physics_process(delta):
-	# Update rocket position based on the velocity
-	global_position.x += velocity_magnitude * delta
+	# Update enemy position based on the velocity
+	global_position.x -= velocity_magnitude * delta
 
 func _on_screen_exited():
 	queue_free()
