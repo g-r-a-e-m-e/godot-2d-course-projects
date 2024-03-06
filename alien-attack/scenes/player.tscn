@@ -14,3 +14,5 @@ texture = ExtResource("2_iqsk8")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 scale = Vector2(0.2, 0.2)
 polygon = PackedVector2Array(-257, -49, -235, 12, -188, 39, -168, 111, -94, 71, -56, 99, 0, 175, 79, 84, 95, 67, 149, 95, 166, 115, 200, 32, 240, 8, 259, -47, 238, -66, 196, -109, 148, -136, 102, -153, 66, -177, 44, -183, 0, -188, -40, -185, -74, -176, -89, -168, -115, -146, -152, -142, -201, -117)
+
+[node name="rocket_container" type="Node" parent="."]

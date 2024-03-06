@@ -1,16 +1,17 @@
 extends CharacterBody2D
 
 # Declare screen_size variable
-var screen_size
+@onready var screen_size = get_viewport_rect().size
 
 # Specify magnitude of velocity
 @export var velocity_magnitude = 750.0
 
-func _ready():
-	screen_size = get_viewport_rect().size
+# Preload rocket scene and get rocket_container node
+var rocket_scene = preload("res://scenes/rocket.tscn")
+@onready var rocket_container = $rocket_container #get_node("rocket_container")
 
 func _process(delta):
-	if Input.is_action_pressed("shoot"):
+	if Input.is_action_just_pressed("shoot"):
 		shoot()
 
 func _physics_process(delta):
@@ -39,4 +40,7 @@ func _physics_process(delta):
 	global_position = global_position.clamp(Vector2(0, 0), screen_size)
 
 func shoot():
-	pass
+	var rocket_instance = rocket_scene.instantiate()
+	rocket_container.add_child(rocket_instance)
+	rocket_instance.global_position = global_position
+	rocket_instance.global_position.x += 50
