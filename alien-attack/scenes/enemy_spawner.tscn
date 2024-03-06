@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://b26krpadfxqos"]
+
+[ext_resource type="Script" path="res://scripts/enemy_spawner.gd" id="1_opuro"]
+
+[node name="enemy_spawner" type="Node2D"]
+position = Vector2(1327, 60)
+script = ExtResource("1_opuro")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[node name="spawn_container" type="Node2D" parent="."]
+
+[node name="spawn_position_01" type="Marker2D" parent="spawn_container"]
+rotation = 4.71239
+
+[node name="spawn_position_02" type="Marker2D" parent="spawn_container"]
+position = Vector2(2.08165e-12, 60)
+rotation = 4.71239
+
+[node name="spawn_position_03" type="Marker2D" parent="spawn_container"]
+position = Vector2(2.08165e-12, 120)
+rotation = 4.71239
+
+[node name="spawn_position_04" type="Marker2D" parent="spawn_container"]
+position = Vector2(2.08165e-12, 180)
+rotation = 4.71239
+
+[node name="spawn_position_05" type="Marker2D" parent="spawn_container"]
+position = Vector2(2.08165e-12, 240)
+rotation = 4.71239
+
+[node name="spawn_position_06" type="Marker2D" parent="spawn_container"]
+position = Vector2(2.08165e-12, 300)
+rotation = 4.71239
+
+[node name="spawn_position_07" type="Marker2D" parent="spawn_container"]
+position = Vector2(2.08165e-12, 360)
+rotation = 4.71239
+
+[node name="spawn_position_08" type="Marker2D" parent="spawn_container"]
+position = Vector2(2.08165e-12, 420)
+rotation = 4.71239
+
+[node name="spawn_position_09" type="Marker2D" parent="spawn_container"]
+position = Vector2(2.08165e-12, 480)
+rotation = 4.71239
+
+[node name="spawn_position_10" type="Marker2D" parent="spawn_container"]
+position = Vector2(2.08165e-12, 540)
+rotation = 4.71239
+
+[node name="spawn_position_11" type="Marker2D" parent="spawn_container"]
+position = Vector2(2.08165e-12, 600)
+rotation = 4.71239
