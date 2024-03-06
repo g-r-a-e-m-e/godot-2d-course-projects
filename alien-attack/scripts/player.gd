@@ -9,6 +9,10 @@ var screen_size
 func _ready():
 	screen_size = get_viewport_rect().size
 
+func _process(delta):
+	if Input.is_action_pressed("shoot"):
+		shoot()
+
 func _physics_process(delta):
 	# Reset velocity to 0 at the start of each frame
 	velocity = Vector2(0.0, 0.0) 
@@ -33,3 +37,6 @@ func _physics_process(delta):
 	
 	# Prevent player movement from exceeding screen size
 	global_position = global_position.clamp(Vector2(0, 0), screen_size)
+
+func shoot():
+	pass

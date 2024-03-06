@@ -4,4 +4,5 @@ extends Area2D
 @export var velocity_magnitude = 25
 
 func _physics_process(delta):
-	global_position.x += velocity_magnitude
+	# Update rocket position based on the rocket's velocity
+	global_position.x += velocity_magnitude * delta
