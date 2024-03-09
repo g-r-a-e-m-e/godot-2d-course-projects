@@ -13,6 +13,9 @@ signal took_damage
 var rocket_scene = preload("res://scenes/rocket.tscn")
 @onready var rocket_container = $rocket_container #get_node("rocket_container")
 
+# Reference audio file
+@onready var rocket_sound = $rocket_sound
+
 func _process(delta):
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
@@ -46,6 +49,8 @@ func shoot():
 	var rocket_instance = rocket_scene.instantiate()
 	rocket_container.add_child(rocket_instance)
 	rocket_instance.global_position = global_position
+	rocket_sound.pitch_scale = 0.2
+	rocket_sound.play()
 	rocket_instance.global_position.x += 50
 
 func take_damage():
