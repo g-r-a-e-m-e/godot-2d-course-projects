@@ -11,6 +11,8 @@ var enemy_scene = preload("res://scenes/enemy.tscn")
 @onready var spawn_container = $spawn_container
 
 func _ready():
+	# Randomize wait_time for enemy spawn
+	timer_node.wait_time -= randf_range(0.0, 1.0)
 	timer_node.connect("timeout", _on_timeout)
 
 func _on_timeout():
