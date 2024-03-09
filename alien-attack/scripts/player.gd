@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+# Send signal to game scene
+signal took_damage
+
 # Declare screen_size variable
 @onready var screen_size = get_viewport_rect().size
 
@@ -44,3 +47,9 @@ func shoot():
 	rocket_container.add_child(rocket_instance)
 	rocket_instance.global_position = global_position
 	rocket_instance.global_position.x += 50
+
+func take_damage():
+	emit_signal("took_damage")
+
+func die():
+	queue_free()

@@ -9,6 +9,8 @@ height = 115.981
 
 [node name="rocket" type="Area2D"]
 scale = Vector2(0.3, 0.3)
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_gpmph")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

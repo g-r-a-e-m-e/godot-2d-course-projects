@@ -1,5 +1,8 @@
 extends Node2D
 
+# Send signal to game scene
+signal enemy_spawned(enemy_instance)
+
 # Get Timer node
 @onready var timer_node = $Timer
 
@@ -18,4 +21,5 @@ func spawn_enemy():
 	var random_spawn_position = spawn_position_array.pick_random()
 	var enemy_instance = enemy_scene.instantiate()
 	enemy_instance.global_position = random_spawn_position.global_position
-	add_child(enemy_instance)
+	#add_child(enemy_instance)
+	emit_signal("enemy_spawned", enemy_instance)
