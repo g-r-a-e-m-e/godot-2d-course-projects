@@ -1,8 +1,54 @@
-[gd_scene load_steps=4 format=3 uid="uid://dd7k7kvr21g5k"]
+[gd_scene load_steps=13 format=3 uid="uid://dd7k7kvr21g5k"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_g7t8m"]
 [ext_resource type="Texture2D" uid="uid://vc0w0c8fy3qk" path="res://assets/textures/player_ship.png" id="2_iqsk8"]
 [ext_resource type="AudioStream" uid="uid://cytcteypsjn67" path="res://assets/audio/hit.wav" id="3_xdkvx"]
+
+[sub_resource type="Curve" id="Curve_gtxqh"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_dnyff"]
+curve = SubResource("Curve_gtxqh")
+
+[sub_resource type="Gradient" id="Gradient_i45si"]
+colors = PackedColorArray(0.298039, 0.309804, 0.988235, 0.407843, 0.717647, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_v4e28"]
+gradient = SubResource("Gradient_i45si")
+
+[sub_resource type="Curve" id="Curve_y5u5l"]
+min_value = -1.0
+_data = [Vector2(0, -0.399683), 0.0, 0.0, 0, 0, Vector2(0.99999, 0.470708), 0.0, 0.0, 0, 0, Vector2(1, 0.300158), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_lhd1w"]
+curve = SubResource("Curve_y5u5l")
+
+[sub_resource type="Curve" id="Curve_jxxvv"]
+_data = [Vector2(0, 0.7832), 0.0, 0.193996, 0, 0, Vector2(1, 0.237183), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hnfnn"]
+curve = SubResource("Curve_jxxvv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_svfbv"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(4, 2.08165e-12, 2.08165e-12)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(2.08165e-12, 1, 2.08165e-12)
+spread = 10.0
+initial_velocity_min = 200.0
+initial_velocity_max = 200.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_hnfnn")
+color_ramp = SubResource("GradientTexture1D_v4e28")
+alpha_curve = SubResource("CurveTexture_dnyff")
+hue_variation_min = -0.15
+hue_variation_max = 0.15
+hue_variation_curve = SubResource("CurveTexture_lhd1w")
 
 [node name="player" type="CharacterBody2D"]
 collision_mask = 2
@@ -12,6 +58,14 @@ script = ExtResource("1_g7t8m")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_iqsk8")
+
+[node name="rocket_trail" type="GPUParticles2D" parent="Sprite2D"]
+position = Vector2(0, 165)
+scale = Vector2(5, 5)
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_svfbv")
+lifetime = 0.5
+randomness = 0.3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 scale = Vector2(0.2, 0.2)
