@@ -8,6 +8,7 @@ extends Area2D
 
 func _ready():
 	visible_node.connect("screen_exited", _on_screen_exited)
+	visible_node.connect("area_entered", _on_area_entered)
 
 func _physics_process(delta):
 	# Update rocket position based on the velocity
