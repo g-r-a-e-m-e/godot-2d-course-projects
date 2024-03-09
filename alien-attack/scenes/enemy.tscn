@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bwk7wpfk2a3q3" path="res://assets/textures/enemy_ship.png" id="1_qhvg5"]
 
 [node name="enemy" type="Area2D"]
+rotation = -1.5708
 scale = Vector2(0.2, 0.2)
 script = ExtResource("1_np0dy")
 

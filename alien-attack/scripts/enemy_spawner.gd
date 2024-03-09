@@ -14,12 +14,8 @@ func _on_timeout():
 	spawn_enemy()
 
 func spawn_enemy():
-	# Instance enemy
+	var spawn_position_array = spawn_container.get_children()
+	var random_spawn_position = spawn_position_array.pick_random()
 	var enemy_instance = enemy_scene.instantiate()
-	
-	# Randomize position_index and get corresponding spawn_position
-	var position_index = "spawn_position_{idx}".format({"idx": "%0*d" % [2, randi_range(1, 11)]})
-	var spawn_position = spawn_container.get_node(position_index)
-	
-	# Add child at randomized spawn_position
-	spawn_position.add_child(enemy_instance)
+	enemy_instance.global_position = random_spawn_position.global_position
+	add_child(enemy_instance)
